@@ -1,3 +1,4 @@
+import cProfile
 import json
 import time
 from dataclasses import asdict
@@ -25,4 +26,8 @@ def main() -> None:
 
 
 if __name__ == "__main__":
+    pr = cProfile.Profile()
+    pr.enable()
     main()
+    pr.disable()
+    pr.dump_stats('program.prof')

@@ -9,7 +9,7 @@ from json import JSONEncoder
 from tungsten.parsers.parsing_hierarchy import HierarchyNode
 
 
-@dataclass
+@dataclass(frozen=True, slots=True)
 class GhsSafetyDataSheet:
     """An object representation of the SDS specified in GHS Rev. 9, 2021
     (https://unece.org/transport/standards/transport/dangerous-goods/ghs-rev9-2021)
@@ -24,7 +24,7 @@ class GhsSafetyDataSheet:
                                                    f"Name: {self.name}\nContent:\n")
 
 
-@dataclass
+@dataclass(frozen=True, slots=True)
 class GhsSdsSection:
     """Representation of a GHS SDS section in :class:`GhsSafetyDataSheet`"""
     title: GhsSdsSectionTitle
@@ -35,7 +35,7 @@ class GhsSdsSection:
                                                       f"Subsections:\n")
 
 
-@dataclass
+@dataclass(frozen=True, slots=True)
 class GhsSdsSubsection:
     """Representation of a GHS SDS subsection within a :class:`GhsSdsSection`"""
     title: GhsSdsSubsectionTitle
@@ -46,7 +46,7 @@ class GhsSdsSubsection:
         return child_string(self.items, heading=f"Subsection {self.title.name}:\nItems:\n")
 
 
-@dataclass
+@dataclass(frozen=True, slots=True)
 class GhsSdsItem:
     """Representation of the data contained in a GHS SDS subsection (:class:`GhsSdsSubsection`).
     This may come in the form of a field value, several field values, tables, etc.

@@ -45,7 +45,7 @@ class HierarchyNode:
         return output
 
 
-@dataclass
+@dataclass(frozen=True, slots=True)
 class ParsingElement:
     """Class used to abstract PDF objects into parsing objects"""
     page_x0: float

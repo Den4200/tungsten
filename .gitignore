@@ -2,6 +2,8 @@
 output.json
 output.txt
 output/**/*.json
+# Profiling
+*.prof
 
 ### JetBrains template
 # Covers JetBrains IDEs: IntelliJ, RubyMine, PhpStorm, AppCode, PyCharm, CLion, Android Studio, WebStorm and Rider

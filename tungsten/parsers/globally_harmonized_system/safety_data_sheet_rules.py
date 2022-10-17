@@ -60,7 +60,7 @@ class GhsSdsRules(metaclass=abc.ABCMeta):
         pass
 
 
-@dataclass
+@dataclass(frozen=True, slots=True)
 class SubsectionDiscriminatorRules:
     matching_rules: dict[re.Pattern[AnyStr], GhsSdsSubsectionTitle]
     default: GhsSdsSubsectionTitle

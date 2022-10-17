@@ -15,12 +15,15 @@ flake8 = "^5.0.4"
 taskipy = "^1.10.3"
 pre-commit = "^2.20.0"
 pytest = "^7.1.3"
+snakeviz = "^2.1.1"
 
 [tool.taskipy.tasks]
 start = "python -m tungsten"
 lint = "flake8 ."
 pre-commit = "pre-commit install"
 test = "pytest"
+profile = "task start && task profile_viz"
+profile_viz = "snakeviz program.prof"
 
 [build-system]
 requires = ["poetry-core"]
